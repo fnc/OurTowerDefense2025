@@ -5,6 +5,8 @@ extends Node2D
 
 # Reference to the grid or game area
 @export var GameArea: Node2D
+@export var Path: Path2D
+@export var PathClearence: float
 
 func _ready():
 	set_process_input(true)
@@ -31,8 +33,28 @@ func place_tower(global_mouse_position: Vector2):
 		print("Invalid position for tower placement.")
 
 func is_valid_position(position: Vector2) -> bool:
-	# Example: Check if there's already a tower at this position
+	# Check if the position overlaps another tower's radius
 	for child in GameArea.get_children():
-		if child.position == position:
-			return false
+		#if child is KinematicBody2D or StaticBody2D:  # Assuming towers are bodies
+			var tower_radius = 64  # Adjust this based on your tower's effective radius
+			if child.position.distance_to(position) < tower_radius:
+				print("Cannot place tower: Overlaps another tower's radius.")
+				return false
+
+	# Check if the position is on or near the path
+	if is_near_path(position):
+		print("Cannot place tower: Too close to or on the path.")
+		return false
+
 	return true
+
+func is_near_path(position: Vector2) -> bool:
+	var curve = Path.curve # Get the Curve2D from the Path2D
+	if not curve:
+		print("Curve2D not found.")
+		return false
+
+	var clearance_radius = PathClearence  # Minimum distance from the path
+	var closest_distance = curve.get_closest_point(position).distance_to(position)
+
+	return closest_distance < clearance_radius
