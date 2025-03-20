@@ -9,7 +9,7 @@ extends Node2D
 @export var PathClearence: float
 
 func _ready():
-	set_process_input(true)
+	set_process_input(false)
 
 # Detect input for placing towers
 func _input(event):

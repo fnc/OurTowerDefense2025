@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://pud3a0rcfesl"]
+
+[ext_resource type="Script" uid="uid://bydjbtyyxvpp5" path="res://enemy.gd" id="1_08bi2"]
+[ext_resource type="Texture2D" uid="uid://dgbamm20yt6pn" path="res://assets/botella.png" id="2_08bi2"]
+
+[node name="Enemy" type="PathFollow2D"]
+rotates = false
+loop = false
+script = ExtResource("1_08bi2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_08bi2")
