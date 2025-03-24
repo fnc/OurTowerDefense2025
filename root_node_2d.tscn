@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://bjaecrgvlmfm2"]
+[gd_scene load_steps=18 format=3 uid="uid://bjaecrgvlmfm2"]
 
 [ext_resource type="Script" uid="uid://b8e0gqijmqpup" path="res://playerInput.gd" id="1_tc527"]
-[ext_resource type="PackedScene" uid="uid://bklkg12tgvcd4" path="res://tower_base.tscn" id="2_lqgkb"]
+[ext_resource type="PackedScene" uid="uid://bklkg12tgvcd4" path="res://tower_TypeA.tscn" id="2_lqgkb"]
 [ext_resource type="Script" uid="uid://c50rr27agheub" path="res://spawner.gd" id="4_40171"]
 [ext_resource type="Script" uid="uid://c8ygmcmd8wxj2" path="res://spawnableObject.gd" id="4_ikg0i"]
 [ext_resource type="Texture2D" uid="uid://t7x5q5l5no6" path="res://assets/monkey.png" id="4_or2tv"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://pud3a0rcfesl" path="res://enemy/enemy_botella.tscn" id="7_aqhgb"]
 [ext_resource type="Script" uid="uid://dsa822w1fetek" path="res://towerSelectButton.gd" id="8_yuf6q"]
 [ext_resource type="Texture2D" uid="uid://th7amq0uib17" path="res://assets/towerB.png" id="9_gd7j4"]
-[ext_resource type="Script" uid="uid://p2fo2j6ncic8" path="res://game_manager.gd" id="14_xqjtc"]
 
 [sub_resource type="Curve2D" id="Curve2D_lqgkb"]
 _data = {
@@ -103,8 +102,5 @@ texture_normal = ExtResource("9_gd7j4")
 stretch_mode = 0
 script = ExtResource("8_yuf6q")
 tower_name = "ToweTypeB"
-
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("14_xqjtc")
 
 [connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerAButton" to="UiCanvasLayer/Control" method="_on_tower_a_button_pressed"]
