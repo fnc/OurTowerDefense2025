@@ -39,7 +39,7 @@ stream_0/stream = ExtResource("12_qus7j")
 script = ExtResource("1_mhfhn")
 take_hit = NodePath("TrashTakeHit")
 shot = NodePath("Shot")
-bg_loop = NodePath("BG")
+bg_loop = NodePath("BGLoop")
 
 [node name="TrashTakeHit" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_hlghp")
@@ -56,7 +56,7 @@ pitch_scale = 1.18
 bus = &"SFX"
 playback_type = 2
 
-[node name="BG" type="AudioStreamPlayer" parent="."]
+[node name="BGLoop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_sgp2o")
 volume_db = -12.0
 bus = &"SFX"
