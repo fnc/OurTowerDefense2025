@@ -15,6 +15,10 @@ run/main_scene="res://root_node_2d.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+general/default_playback_type=1
+
 [autoload]
 
 GameManager="*res://game_manager.gd"
