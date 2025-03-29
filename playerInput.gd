@@ -9,12 +9,12 @@ extends Node2D
 @export var PathClearence: float
 
 func _ready():
-	set_process_input(false)
+	set_process_input(true)
 
 # Detect input for placing towers
-func _input(event):
-	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_LEFT:
+func _input(event: InputEvent):
+	if event is InputEventMouseButton:
+		if event.pressed: # and event.button_index == MOUSE_BUTTON_LEFT:
 			place_tower(event.position)
 
 func place_tower(global_mouse_position: Vector2):

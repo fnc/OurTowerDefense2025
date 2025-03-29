@@ -5,10 +5,11 @@ var selected_tower: PackedScene = null # The currently selected tower
 
 func _ready():
 	# Optional: Initialize with default tower type
-	selected_tower = TowerScenes.get("TowerTypeA", null)
-	for child in get_children():
-		if child is Button:
-			child.connect("tower_selected", _on_button_pressed)
+	selected_tower = TowerScenes.get("TowerSapito", null)
+	for grid in get_children():
+		for button in grid.get_children():
+			if button is TextureButton:
+				button.connect("tower_selected", _on_button_pressed)
 
 func _on_button_pressed(tower_name: String):
 	# Set the selected tower based on the button pressed

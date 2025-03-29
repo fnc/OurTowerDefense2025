@@ -1,18 +1,20 @@
-[gd_scene load_steps=18 format=3 uid="uid://bjaecrgvlmfm2"]
+[gd_scene load_steps=20 format=3 uid="uid://bjaecrgvlmfm2"]
 
 [ext_resource type="Script" uid="uid://b8e0gqijmqpup" path="res://playerInput.gd" id="1_tc527"]
-[ext_resource type="PackedScene" uid="uid://bklkg12tgvcd4" path="res://tower_TypeA.tscn" id="2_lqgkb"]
+[ext_resource type="PackedScene" uid="uid://bklkg12tgvcd4" path="res://tower_sapito.tscn" id="2_lqgkb"]
 [ext_resource type="Script" uid="uid://c50rr27agheub" path="res://spawner.gd" id="4_40171"]
 [ext_resource type="Script" uid="uid://c8ygmcmd8wxj2" path="res://spawnableObject.gd" id="4_ikg0i"]
-[ext_resource type="Texture2D" uid="uid://t7x5q5l5no6" path="res://assets/monkey.png" id="4_or2tv"]
 [ext_resource type="PackedScene" uid="uid://b05nlpi7dsh4h" path="res://enemy/enemy_bolsa.tscn" id="4_yuf6q"]
 [ext_resource type="Script" uid="uid://craacwhy5m0gy" path="res://towerSelection.gd" id="5_f28iq"]
 [ext_resource type="Texture2D" uid="uid://ccpd0jh5glixg" path="res://assets/path.png" id="5_ikg0i"]
 [ext_resource type="PackedScene" uid="uid://dci454xw45w2r" path="res://enemy/enemy_vaso.tscn" id="6_gd7j4"]
-[ext_resource type="PackedScene" uid="uid://dffnvg076v7fl" path="res://towerTypeB.tscn" id="6_ikg0i"]
+[ext_resource type="PackedScene" uid="uid://dffnvg076v7fl" path="res://tower_castor.tscn" id="6_ikg0i"]
 [ext_resource type="PackedScene" uid="uid://pud3a0rcfesl" path="res://enemy/enemy_botella.tscn" id="7_aqhgb"]
 [ext_resource type="Script" uid="uid://dsa822w1fetek" path="res://towerSelectButton.gd" id="8_yuf6q"]
-[ext_resource type="Texture2D" uid="uid://th7amq0uib17" path="res://assets/towerB.png" id="9_gd7j4"]
+[ext_resource type="Texture2D" uid="uid://bw3uc8gmbr85d" path="res://assets/icons/sapito.png" id="11_bowjw"]
+[ext_resource type="Texture2D" uid="uid://bp7m8uao622pd" path="res://assets/icons/lutria.png" id="13_dvaq1"]
+[ext_resource type="Texture2D" uid="uid://bho1ovrpef1y" path="res://assets/icons/martinpescador.png" id="14_y2aex"]
+[ext_resource type="Texture2D" uid="uid://da51t2djbtf67" path="res://assets/icons/gastor.png" id="15_yaipy"]
 
 [sub_resource type="Curve2D" id="Curve2D_lqgkb"]
 _data = {
@@ -38,12 +40,7 @@ scene = ExtResource("7_aqhgb")
 spawn_probability = 0.1
 metadata/_custom_type_script = "uid://c8ygmcmd8wxj2"
 
-[node name="ROOT_Node2D" type="Node2D" node_paths=PackedStringArray("GameArea", "Path")]
-script = ExtResource("1_tc527")
-TowerScene = ExtResource("2_lqgkb")
-GameArea = NodePath("GameArea")
-Path = NodePath("Path2D")
-PathClearence = 50.0
+[node name="ROOT_Node2D" type="Node2D"]
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_lqgkb")
@@ -53,17 +50,21 @@ script = ExtResource("4_40171")
 spawnable_objects = Array[Resource]([SubResource("Resource_gd7j4"), SubResource("Resource_aqhgb"), SubResource("Resource_xqjtc")])
 path = NodePath("../Path2D")
 
-[node name="GameArea" type="Node2D" parent="."]
+[node name="GameArea" type="Node2D" parent="." node_paths=PackedStringArray("GameArea", "Path")]
+script = ExtResource("1_tc527")
+TowerScene = ExtResource("2_lqgkb")
+GameArea = NodePath(".")
+Path = NodePath("../Path2D")
+PathClearence = 50.0
 
 [node name="TileMap" type="TileMap" parent="GameArea"]
 format = 2
 
-[node name="TextureRect" type="TextureRect" parent="GameArea"]
-z_index = -999
-offset_right = 652.0
-offset_bottom = 646.0
+[node name="background" type="Sprite2D" parent="GameArea"]
+z_index = -2
+position = Vector2(332.926, 319.5)
+scale = Vector2(0.648185, 0.648185)
 texture = ExtResource("5_ikg0i")
-expand_mode = 3
 
 [node name="UiCanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -76,31 +77,52 @@ offset_right = 661.0
 offset_bottom = 649.0
 script = ExtResource("5_f28iq")
 TowerScenes = {
-"towerTypeA": ExtResource("2_lqgkb"),
-"towerTypeB": ExtResource("6_ikg0i")
+"TowerCastor": ExtResource("6_ikg0i"),
+"TowerSapito": ExtResource("2_lqgkb")
 }
+metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="UiCanvasLayer/Control"]
 custom_minimum_size = Vector2(10, 0.1)
 layout_mode = 0
-offset_left = 650.0
-offset_right = 938.0
-offset_bottom = 417.0
+offset_left = 681.0
+offset_top = 1.0
+offset_right = 781.0
+offset_bottom = 413.0
 
-[node name="TowerAButton" type="TextureButton" parent="UiCanvasLayer/Control/GridContainer"]
+[node name="TowerSapitoButton" type="TextureButton" parent="UiCanvasLayer/Control/GridContainer"]
 layout_mode = 2
 action_mode = 0
-texture_normal = ExtResource("4_or2tv")
+texture_normal = ExtResource("11_bowjw")
 stretch_mode = 3
 script = ExtResource("8_yuf6q")
-tower_name = "TowerTypeA"
+tower_name = "TowerSapito"
 
-[node name="TowerBButton" type="TextureButton" parent="UiCanvasLayer/Control/GridContainer"]
+[node name="TowerNutriaButton" type="TextureButton" parent="UiCanvasLayer/Control/GridContainer"]
 z_index = 1
 layout_mode = 2
-texture_normal = ExtResource("9_gd7j4")
+texture_normal = ExtResource("13_dvaq1")
 stretch_mode = 0
 script = ExtResource("8_yuf6q")
-tower_name = "ToweTypeB"
+tower_name = "ToweNutria"
 
-[connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerAButton" to="UiCanvasLayer/Control" method="_on_tower_a_button_pressed"]
+[node name="TowerMartinButton" type="TextureButton" parent="UiCanvasLayer/Control/GridContainer"]
+z_index = 1
+layout_mode = 2
+texture_normal = ExtResource("14_y2aex")
+stretch_mode = 0
+script = ExtResource("8_yuf6q")
+tower_name = "TowerMartin"
+
+[node name="TowerCastorButton" type="TextureButton" parent="UiCanvasLayer/Control/GridContainer"]
+z_index = 1
+layout_mode = 2
+texture_normal = ExtResource("15_yaipy")
+stretch_mode = 0
+script = ExtResource("8_yuf6q")
+tower_name = "ToweCastor"
+
+[connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerSapitoButton" to="UiCanvasLayer/Control/GridContainer/TowerSapitoButton" method="_on_pressed"]
+[connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerNutriaButton" to="UiCanvasLayer/Control/GridContainer/TowerNutriaButton" method="_on_pressed"]
+[connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerMartinButton" to="UiCanvasLayer/Control/GridContainer/TowerMartinButton" method="_on_pressed"]
+[connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerCastorButton" to="UiCanvasLayer/Control/GridContainer/TowerCastorButton" method="_on_pressed"]
