@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bjaecrgvlmfm2"]
+[gd_scene load_steps=32 format=3 uid="uid://bjaecrgvlmfm2"]
 
 [ext_resource type="Script" uid="uid://b8e0gqijmqpup" path="res://playerInput.gd" id="1_tc527"]
 [ext_resource type="PackedScene" uid="uid://bklkg12tgvcd4" path="res://towers/tower_sapito.tscn" id="2_lqgkb"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bp7m8uao622pd" path="res://assets/icons/lutria.png" id="13_dvaq1"]
 [ext_resource type="Texture2D" uid="uid://bho1ovrpef1y" path="res://assets/icons/martinpescador.png" id="14_y2aex"]
 [ext_resource type="Texture2D" uid="uid://da51t2djbtf67" path="res://assets/icons/gastor.png" id="15_yaipy"]
+[ext_resource type="Texture2D" uid="uid://djg7d3xixesbi" path="res://assets/play.png" id="20_p37fh"]
 
 [sub_resource type="Curve2D" id="Curve2D_lqgkb"]
 _data = {
@@ -49,6 +50,24 @@ script = ExtResource("4_ikg0i")
 scene = ExtResource("6_wnxwe")
 spawn_probability = 0.02
 metadata/_custom_type_script = "uid://c8ygmcmd8wxj2"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fmm45"]
+texture = ExtResource("20_p37fh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pktl7"]
+texture = ExtResource("20_p37fh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5br55"]
+texture = ExtResource("20_p37fh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p37fh"]
+texture = ExtResource("20_p37fh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_80eph"]
+texture = ExtResource("20_p37fh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pvbhh"]
+texture = ExtResource("20_p37fh")
 
 [node name="ROOT_Node2D" type="Node2D"]
 
@@ -114,21 +133,9 @@ stretch_mode = 3
 script = ExtResource("8_yuf6q")
 tower_name = "TowerSapito"
 
-[node name="TowerNutriaButton" type="TextureButton" parent="UiCanvasLayer/Control/GridContainer"]
-z_index = 1
+[node name="TowerLabelSapito" type="Label" parent="UiCanvasLayer/Control/GridContainer"]
 layout_mode = 2
-texture_normal = ExtResource("13_dvaq1")
-stretch_mode = 0
-script = ExtResource("8_yuf6q")
-tower_name = "TowerNutria"
-
-[node name="TowerMartinButton" type="TextureButton" parent="UiCanvasLayer/Control/GridContainer"]
-z_index = 1
-layout_mode = 2
-texture_normal = ExtResource("14_y2aex")
-stretch_mode = 0
-script = ExtResource("8_yuf6q")
-tower_name = "TowerMartin"
+text = "$ 250"
 
 [node name="TowerCastorButton" type="TextureButton" parent="UiCanvasLayer/Control/GridContainer"]
 z_index = 1
@@ -138,40 +145,74 @@ stretch_mode = 0
 script = ExtResource("8_yuf6q")
 tower_name = "TowerCastor"
 
+[node name="TowerLabelCastor" type="Label" parent="UiCanvasLayer/Control/GridContainer"]
+layout_mode = 2
+text = "$ 400"
+
+[node name="TowerMartinButton" type="TextureButton" parent="UiCanvasLayer/Control/GridContainer"]
+z_index = 1
+layout_mode = 2
+texture_normal = ExtResource("14_y2aex")
+stretch_mode = 0
+script = ExtResource("8_yuf6q")
+tower_name = "TowerMartin"
+
+[node name="TowerLabelMarti" type="Label" parent="UiCanvasLayer/Control/GridContainer"]
+layout_mode = 2
+text = "$ 500"
+
+[node name="TowerNutriaButton" type="TextureButton" parent="UiCanvasLayer/Control/GridContainer"]
+z_index = 1
+layout_mode = 2
+texture_normal = ExtResource("13_dvaq1")
+stretch_mode = 0
+script = ExtResource("8_yuf6q")
+tower_name = "TowerNutria"
+
+[node name="TowerLabelNutria" type="Label" parent="UiCanvasLayer/Control/GridContainer"]
+layout_mode = 2
+text = "$ 900
+"
+
 [node name="MoneyLabel" type="Label" parent="UiCanvasLayer"]
-offset_left = 680.0
-offset_top = 454.0
-offset_right = 808.0
-offset_bottom = 477.0
+offset_left = 815.0
+offset_top = 544.0
+offset_right = 943.0
+offset_bottom = 567.0
 text = "12345678"
 
 [node name="HealthLabel" type="Label" parent="UiCanvasLayer"]
-offset_left = 679.0
-offset_top = 483.0
-offset_right = 807.0
-offset_bottom = 506.0
+offset_left = 817.0
+offset_top = 576.0
+offset_right = 945.0
+offset_bottom = 599.0
 text = "12345678"
 
 [node name="WaveLabel" type="Label" parent="UiCanvasLayer"]
-offset_left = 680.0
-offset_top = 512.0
-offset_right = 808.0
-offset_bottom = 535.0
+offset_left = 819.0
+offset_top = 607.0
+offset_right = 947.0
+offset_bottom = 630.0
 text = "12345678"
 
 [node name="StartWaveButton" type="Button" parent="UiCanvasLayer"]
-offset_left = 670.0
-offset_top = 548.0
-offset_right = 779.0
-offset_bottom = 614.0
-text = "► Play"
+offset_left = 671.0
+offset_top = 574.0
+offset_right = 780.0
+offset_bottom = 640.0
+theme_override_styles/disabled = SubResource("StyleBoxTexture_fmm45")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_pktl7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_5br55")
+theme_override_styles/hover = SubResource("StyleBoxTexture_p37fh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_80eph")
+theme_override_styles/normal = SubResource("StyleBoxTexture_pvbhh")
 
 [connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerSapitoButton" to="UiCanvasLayer/Control/GridContainer/TowerSapitoButton" method="_on_pressed"]
 [connection signal="tower_selected" from="UiCanvasLayer/Control/GridContainer/TowerSapitoButton" to="UiCanvasLayer/Control" method="_on_button_pressed"]
-[connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerNutriaButton" to="UiCanvasLayer/Control/GridContainer/TowerNutriaButton" method="_on_pressed"]
-[connection signal="tower_selected" from="UiCanvasLayer/Control/GridContainer/TowerNutriaButton" to="UiCanvasLayer/Control" method="_on_button_pressed"]
-[connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerMartinButton" to="UiCanvasLayer/Control/GridContainer/TowerMartinButton" method="_on_pressed"]
-[connection signal="tower_selected" from="UiCanvasLayer/Control/GridContainer/TowerMartinButton" to="UiCanvasLayer/Control" method="_on_button_pressed"]
 [connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerCastorButton" to="UiCanvasLayer/Control/GridContainer/TowerCastorButton" method="_on_pressed"]
 [connection signal="tower_selected" from="UiCanvasLayer/Control/GridContainer/TowerCastorButton" to="UiCanvasLayer/Control" method="_on_button_pressed"]
+[connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerMartinButton" to="UiCanvasLayer/Control/GridContainer/TowerMartinButton" method="_on_pressed"]
+[connection signal="tower_selected" from="UiCanvasLayer/Control/GridContainer/TowerMartinButton" to="UiCanvasLayer/Control" method="_on_button_pressed"]
+[connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerNutriaButton" to="UiCanvasLayer/Control/GridContainer/TowerNutriaButton" method="_on_pressed"]
+[connection signal="tower_selected" from="UiCanvasLayer/Control/GridContainer/TowerNutriaButton" to="UiCanvasLayer/Control" method="_on_button_pressed"]
 [connection signal="pressed" from="UiCanvasLayer/StartWaveButton" to="Spawner" method="_on_StartWaveButton_pressed"]

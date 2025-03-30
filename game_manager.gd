@@ -1,7 +1,7 @@
 extends Node
 
 @export var initial_lives: int = 100;
-@export var initial_money: int = 1000;
+@export var initial_money: int = 650;
 var money: int = initial_money # Keep track of the total score
 var lives: int = initial_lives # Lives remaining in the game
 var selected_tower: PackedScene = null # The currently selected tower

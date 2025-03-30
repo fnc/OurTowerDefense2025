@@ -1,6 +1,6 @@
 extends PathFollow2D
 
-@export var points_value: int = 10 # Value of this enemy
+@export var points_value: int = 1 # Value of this enemy
 @export var speed: float = 100.0
 @export var health: int = 100  # Enemy health
 
@@ -26,5 +26,6 @@ func _process(delta: float) -> void:
 func take_damage(amount: int) -> void:
 	health -= amount  # Reduce health
 	if health <= 0:
+		print("Enemy defeated! points_value:", points_value)
 		emit_signal("enemy_defeated", points_value)
 		queue_free()  # Remove the enemy when health reaches zero

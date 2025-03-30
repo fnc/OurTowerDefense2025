@@ -7,9 +7,8 @@
 rotates = false
 loop = false
 script = ExtResource("1_vgj2x")
-points_value = 500
-speed = 20.0
-health = 5000
+speed = 30.0
+health = 800
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
