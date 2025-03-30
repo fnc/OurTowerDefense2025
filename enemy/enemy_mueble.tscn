@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd6p63edxy71x"]
+
+[ext_resource type="Script" uid="uid://bydjbtyyxvpp5" path="res://enemy.gd" id="1_vgj2x"]
+[ext_resource type="Texture2D" uid="uid://dnoob62jf38uu" path="res://assets/mueble.png" id="2_vgj2x"]
+
+[node name="Enemy" type="PathFollow2D"]
+rotates = false
+loop = false
+script = ExtResource("1_vgj2x")
+points_value = 500
+speed = 20.0
+health = 5000
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_vgj2x")

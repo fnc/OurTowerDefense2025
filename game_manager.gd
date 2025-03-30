@@ -5,6 +5,7 @@ extends Node
 var money: int = initial_money # Keep track of the total score
 var lives: int = initial_lives # Lives remaining in the game
 var selected_tower: PackedScene = null # The currently selected tower
+var current_wave: int = 0
 
 func _ready():
 	# Initialize score or lives, if necessary

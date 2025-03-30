@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bjaecrgvlmfm2"]
+[gd_scene load_steps=25 format=3 uid="uid://bjaecrgvlmfm2"]
 
 [ext_resource type="Script" uid="uid://b8e0gqijmqpup" path="res://playerInput.gd" id="1_tc527"]
 [ext_resource type="PackedScene" uid="uid://bklkg12tgvcd4" path="res://towers/tower_sapito.tscn" id="2_lqgkb"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://craacwhy5m0gy" path="res://towerSelection.gd" id="5_f28iq"]
 [ext_resource type="PackedScene" uid="uid://dci454xw45w2r" path="res://enemy/enemy_vaso.tscn" id="6_gd7j4"]
 [ext_resource type="PackedScene" uid="uid://dffnvg076v7fl" path="res://towers/tower_castor.tscn" id="6_ikg0i"]
+[ext_resource type="PackedScene" uid="uid://dd6p63edxy71x" path="res://enemy/enemy_mueble.tscn" id="6_wnxwe"]
 [ext_resource type="PackedScene" uid="uid://pud3a0rcfesl" path="res://enemy/enemy_botella.tscn" id="7_aqhgb"]
 [ext_resource type="Texture2D" uid="uid://bdehop6uwtex8" path="res://assets/levels/primer nivel.png" id="8_bowjw"]
 [ext_resource type="Script" uid="uid://dsa822w1fetek" path="res://towerSelectButton.gd" id="8_yuf6q"]
@@ -43,16 +44,23 @@ scene = ExtResource("7_aqhgb")
 spawn_probability = 0.1
 metadata/_custom_type_script = "uid://c8ygmcmd8wxj2"
 
+[sub_resource type="Resource" id="Resource_p37fh"]
+script = ExtResource("4_ikg0i")
+scene = ExtResource("6_wnxwe")
+spawn_probability = 0.02
+metadata/_custom_type_script = "uid://c8ygmcmd8wxj2"
+
 [node name="ROOT_Node2D" type="Node2D"]
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_lqgkb")
 
-[node name="Spawner" type="Node2D" parent="."]
+[node name="Spawner" type="Node2D" parent="." node_paths=PackedStringArray("startButton")]
 script = ExtResource("4_40171")
-spawnable_objects = Array[Resource]([SubResource("Resource_gd7j4"), SubResource("Resource_aqhgb"), SubResource("Resource_xqjtc")])
+spawnable_objects = Array[Resource]([SubResource("Resource_gd7j4"), SubResource("Resource_aqhgb"), SubResource("Resource_xqjtc"), SubResource("Resource_p37fh")])
 spawn_rate = 0.5
 path = NodePath("../Path2D")
+startButton = NodePath("../UiCanvasLayer/StartWaveButton")
 
 [node name="GameArea" type="Node2D" parent="." node_paths=PackedStringArray("GameArea", "Background", "Path")]
 script = ExtResource("1_tc527")
@@ -144,6 +152,20 @@ offset_right = 807.0
 offset_bottom = 506.0
 text = "12345678"
 
+[node name="WaveLabel" type="Label" parent="UiCanvasLayer"]
+offset_left = 680.0
+offset_top = 512.0
+offset_right = 808.0
+offset_bottom = 535.0
+text = "12345678"
+
+[node name="StartWaveButton" type="Button" parent="UiCanvasLayer"]
+offset_left = 670.0
+offset_top = 548.0
+offset_right = 779.0
+offset_bottom = 614.0
+text = "► Play"
+
 [connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerSapitoButton" to="UiCanvasLayer/Control/GridContainer/TowerSapitoButton" method="_on_pressed"]
 [connection signal="tower_selected" from="UiCanvasLayer/Control/GridContainer/TowerSapitoButton" to="UiCanvasLayer/Control" method="_on_button_pressed"]
 [connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerNutriaButton" to="UiCanvasLayer/Control/GridContainer/TowerNutriaButton" method="_on_pressed"]
@@ -152,3 +174,4 @@ text = "12345678"
 [connection signal="tower_selected" from="UiCanvasLayer/Control/GridContainer/TowerMartinButton" to="UiCanvasLayer/Control" method="_on_button_pressed"]
 [connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerCastorButton" to="UiCanvasLayer/Control/GridContainer/TowerCastorButton" method="_on_pressed"]
 [connection signal="tower_selected" from="UiCanvasLayer/Control/GridContainer/TowerCastorButton" to="UiCanvasLayer/Control" method="_on_button_pressed"]
+[connection signal="pressed" from="UiCanvasLayer/StartWaveButton" to="Spawner" method="_on_StartWaveButton_pressed"]
