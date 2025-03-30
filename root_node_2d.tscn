@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bjaecrgvlmfm2"]
+[gd_scene load_steps=33 format=3 uid="uid://bjaecrgvlmfm2"]
 
 [ext_resource type="Script" uid="uid://b8e0gqijmqpup" path="res://playerInput.gd" id="1_tc527"]
 [ext_resource type="PackedScene" uid="uid://bklkg12tgvcd4" path="res://towers/tower_sapito.tscn" id="2_lqgkb"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bho1ovrpef1y" path="res://assets/icons/martinpescador.png" id="14_y2aex"]
 [ext_resource type="Texture2D" uid="uid://da51t2djbtf67" path="res://assets/icons/gastor.png" id="15_yaipy"]
 [ext_resource type="Texture2D" uid="uid://djg7d3xixesbi" path="res://assets/play.png" id="20_p37fh"]
+[ext_resource type="Texture2D" uid="uid://buwfcqy8fig5d" path="res://assets/Tapa sin nada.png" id="21_pvbhh"]
 
 [sub_resource type="Curve2D" id="Curve2D_lqgkb"]
 _data = {
@@ -206,6 +207,11 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_5br55")
 theme_override_styles/hover = SubResource("StyleBoxTexture_p37fh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_80eph")
 theme_override_styles/normal = SubResource("StyleBoxTexture_pvbhh")
+
+[node name="TapaSinNada" type="Sprite2D" parent="."]
+position = Vector2(904.875, 320.875)
+scale = Vector2(0.49225, 0.65625)
+texture = ExtResource("21_pvbhh")
 
 [connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerSapitoButton" to="UiCanvasLayer/Control/GridContainer/TowerSapitoButton" method="_on_pressed"]
 [connection signal="tower_selected" from="UiCanvasLayer/Control/GridContainer/TowerSapitoButton" to="UiCanvasLayer/Control" method="_on_button_pressed"]
