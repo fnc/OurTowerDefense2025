@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfucxrrtmsyj5"]
+
+[ext_resource type="Texture2D" uid="uid://dl45qlhihci4j" path="res://assets/Portada en ingles.png" id="1_51blw"]
+[ext_resource type="Script" uid="uid://hiu48pf6n2tm" path="res://main/menu.gd" id="1_oy5fn"]
+[ext_resource type="Texture2D" uid="uid://djg7d3xixesbi" path="res://assets/play.png" id="2_oy5fn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yp3ja"]
+texture = ExtResource("2_oy5fn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_amcr7"]
+texture = ExtResource("2_oy5fn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o420m"]
+texture = ExtResource("2_oy5fn")
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_oy5fn")
+
+[node name="PortadaEnIngles" type="Sprite2D" parent="."]
+position = Vector2(579.75, 325)
+scale = Vector2(1.1685, 0.698)
+texture = ExtResource("1_51blw")
+
+[node name="play" type="Button" parent="."]
+offset_left = 519.0
+offset_top = 476.0
+offset_right = 731.0
+offset_bottom = 591.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_yp3ja")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_amcr7")
+theme_override_styles/normal = SubResource("StyleBoxTexture_o420m")
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
