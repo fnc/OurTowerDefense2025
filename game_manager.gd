@@ -1,7 +1,8 @@
 extends Node
 
 @export var initial_lives: int = 100;
-var score: int = 0 # Keep track of the total score
+@export var initial_money: int = 1000;
+var money: int = initial_money # Keep track of the total score
 var lives: int = initial_lives # Lives remaining in the game
 var selected_tower: PackedScene = null # The currently selected tower
 
@@ -9,9 +10,9 @@ func _ready():
 	# Initialize score or lives, if necessary
 	print("GameManager ready")
 
-func _on_enemy_defeated(points_value):
-	score += points_value
-	print("Enemy defeated! Points added:", points_value, "| Total score:", score)
+func _on_enemy_defeated(points_value: int):
+	money += points_value
+	print("Enemy defeated! Points added:", points_value, "| Total score:", money)
 
 func _on_enemy_reached_end(points_value):
 	lives -= 1

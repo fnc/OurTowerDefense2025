@@ -7,6 +7,7 @@
 rotates = false
 loop = false
 script = ExtResource("1_wnja7")
+points_value = 100
 speed = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -5,6 +5,7 @@ extends Node2D
 @export var projectile_damage: float = 1.0
 @export var range: float = 200.0
 @export var fire_rate: float = 1.0
+@export var price: int = 10 # Price of this tower
 
 var can_shoot = true
 

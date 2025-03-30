@@ -10,7 +10,7 @@ func _process(delta: float):
 		position += direction * speed * delta
 
 		if position.distance_to(target.global_position) < 10:
-			target.take_damage(10) # Custom method for enemy damage
+			target.take_damage(damage) # Custom method for enemy damage
 			queue_free() # Destroy the projectile
 	else:
 		queue_free() # Destroy if target is invalid

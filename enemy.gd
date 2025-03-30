@@ -4,6 +4,7 @@ extends PathFollow2D
 @export var speed: float = 100.0
 @export var health: int = 100  # Enemy health
 
+
 func _ready():
 	# Add the node to a group named "example_group"
 	add_to_group("enemies")
@@ -11,6 +12,10 @@ func _ready():
 			{ "name": "point_value", "type": TYPE_INT }
 		])
 	self.connect("enemy_reached_end",GameManager._on_enemy_reached_end)
+	add_user_signal("enemy_defeated", [
+			{ "name": "point_value", "type": TYPE_INT }
+		])
+	self.connect("enemy_defeated",GameManager._on_enemy_defeated)
 
 func _process(delta: float) -> void:	
 	progress += speed * delta

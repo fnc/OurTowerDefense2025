@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bjaecrgvlmfm2"]
+[gd_scene load_steps=23 format=3 uid="uid://bjaecrgvlmfm2"]
 
 [ext_resource type="Script" uid="uid://b8e0gqijmqpup" path="res://playerInput.gd" id="1_tc527"]
 [ext_resource type="PackedScene" uid="uid://bklkg12tgvcd4" path="res://towers/tower_sapito.tscn" id="2_lqgkb"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://pud3a0rcfesl" path="res://enemy/enemy_botella.tscn" id="7_aqhgb"]
 [ext_resource type="Texture2D" uid="uid://bdehop6uwtex8" path="res://assets/levels/primer nivel.png" id="8_bowjw"]
 [ext_resource type="Script" uid="uid://dsa822w1fetek" path="res://towerSelectButton.gd" id="8_yuf6q"]
+[ext_resource type="Script" uid="uid://bvfdlggoawex5" path="res://ui_canvas_layer.gd" id="9_yaipy"]
 [ext_resource type="Texture2D" uid="uid://bw3uc8gmbr85d" path="res://assets/icons/sapito.png" id="11_bowjw"]
 [ext_resource type="PackedScene" uid="uid://bpfbftxg3wewr" path="res://towers/tower_martin.tscn" id="11_dvaq1"]
 [ext_resource type="PackedScene" uid="uid://bfshr1k7exmf1" path="res://towers/tower_nutria.tscn" id="12_y2aex"]
@@ -72,6 +73,7 @@ texture = ExtResource("8_bowjw")
 
 [node name="UiCanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
+script = ExtResource("9_yaipy")
 
 [node name="Control" type="Control" parent="UiCanvasLayer"]
 layout_mode = 3
@@ -127,6 +129,20 @@ texture_normal = ExtResource("15_yaipy")
 stretch_mode = 0
 script = ExtResource("8_yuf6q")
 tower_name = "TowerCastor"
+
+[node name="MoneyLabel" type="Label" parent="UiCanvasLayer"]
+offset_left = 680.0
+offset_top = 454.0
+offset_right = 808.0
+offset_bottom = 477.0
+text = "12345678"
+
+[node name="HealthLabel" type="Label" parent="UiCanvasLayer"]
+offset_left = 679.0
+offset_top = 483.0
+offset_right = 807.0
+offset_bottom = 506.0
+text = "12345678"
 
 [connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerSapitoButton" to="UiCanvasLayer/Control/GridContainer/TowerSapitoButton" method="_on_pressed"]
 [connection signal="tower_selected" from="UiCanvasLayer/Control/GridContainer/TowerSapitoButton" to="UiCanvasLayer/Control" method="_on_button_pressed"]

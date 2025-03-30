@@ -26,10 +26,14 @@ func place_tower(global_mouse_position: Vector2):
 	var snapped_position = local_mouse_position.snapped(Vector2(32, 32))
 	
 	# Ensure the position is valid for placing towers
-	if is_valid_position(snapped_position):
+	if is_valid_position(snapped_position) :
 		var tower_instance = GameManager.selected_tower.instantiate()
-		tower_instance.position = snapped_position
-		GameArea.add_child(tower_instance)
+		if tower_instance.price <= GameManager.money:
+			tower_instance.position = snapped_position
+			GameManager.money -= tower_instance.price
+			GameArea.add_child(tower_instance)
+		else:
+			tower_instance.queue_free()
 	else:
 		print("Invalid position for tower placement.")
 

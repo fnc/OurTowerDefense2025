@@ -10,6 +10,7 @@ projectile_scene = ExtResource("2_ksgbd")
 projectile_speed = 500.0
 projectile_damage = 10.0
 fire_rate = 0.1
+price = 1000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_38e6s")
