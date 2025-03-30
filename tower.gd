@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var projectile_scene: PackedScene
+@export var projectile_speed: float = 1.0
+@export var projectile_damage: float = 1.0
 @export var range: float = 200.0
 @export var fire_rate: float = 1.0
 
@@ -20,6 +22,8 @@ func shoot(enemy) -> void:
 	var projectile = projectile_scene.instantiate()
 	projectile.global_position = global_position
 	projectile.target = enemy
+	projectile.speed = projectile_speed
+	projectile.damage = projectile_damage
 	get_tree().root.add_child(projectile) # Add to the scene tree
 	
 	

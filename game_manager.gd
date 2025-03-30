@@ -3,6 +3,7 @@ extends Node
 @export var initial_lives: int = 100;
 var score: int = 0 # Keep track of the total score
 var lives: int = initial_lives # Lives remaining in the game
+var selected_tower: PackedScene = null # The currently selected tower
 
 func _ready():
 	# Initialize score or lives, if necessary

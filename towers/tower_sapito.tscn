@@ -7,6 +7,8 @@
 [node name="Tower" type="Node2D"]
 script = ExtResource("1_dkqws")
 projectile_scene = ExtResource("2_r4bnf")
+projectile_speed = 300.0
+projectile_damage = 50.0
 fire_rate = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -5,6 +5,7 @@ extends Node2D
 
 # Reference to the grid or game area
 @export var GameArea: Node2D
+@export var Background: Sprite2D
 @export var Path: Path2D
 @export var PathClearence: float
 
@@ -26,13 +27,24 @@ func place_tower(global_mouse_position: Vector2):
 	
 	# Ensure the position is valid for placing towers
 	if is_valid_position(snapped_position):
-		var tower_instance = TowerScene.instantiate()
+		var tower_instance = GameManager.selected_tower.instantiate()
 		tower_instance.position = snapped_position
 		GameArea.add_child(tower_instance)
 	else:
 		print("Invalid position for tower placement.")
 
 func is_valid_position(position: Vector2) -> bool:
+	# Get the BACKGROUND's global position and size
+	var background_position = Background.global_position
+	var background_size = Background.texture.get_size() * Background.global_scale
+
+	# Calculate BACKGROUND's boundaries
+	var background_rect = Rect2(background_position - (background_size / 2), background_size)
+
+	# Check if the snapped position is within the BACKGROUND's rectangle
+	if !background_rect.has_point(GameArea.to_global(position)):
+		return false
+	
 	# Check if the position overlaps another tower's radius
 	for child in GameArea.get_children():
 		#if child is KinematicBody2D or StaticBody2D:  # Assuming towers are bodies
@@ -45,7 +57,6 @@ func is_valid_position(position: Vector2) -> bool:
 	if is_near_path(position):
 		print("Cannot place tower: Too close to or on the path.")
 		return false
-
 	return true
 
 func is_near_path(position: Vector2) -> bool:

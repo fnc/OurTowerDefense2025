@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://th7amq0uib17"
-path="res://.godot/imported/towerB.png-e7ea377275afad2297eee747d8f58be2.ctex"
+uid="uid://cd0e4cw4ttqw2"
+path="res://.godot/imported/proyectil2.png-9b52c2b80ea4d58015e3085f7abd5a68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/towerB.png"
-dest_files=["res://.godot/imported/towerB.png-e7ea377275afad2297eee747d8f58be2.ctex"]
+source_file="res://assets/proyectil2.png"
+dest_files=["res://.godot/imported/proyectil2.png-9b52c2b80ea4d58015e3085f7abd5a68.ctex"]
 
 [params]
 

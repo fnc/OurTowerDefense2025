@@ -1,24 +1,26 @@
-[gd_scene load_steps=20 format=3 uid="uid://bjaecrgvlmfm2"]
+[gd_scene load_steps=22 format=3 uid="uid://bjaecrgvlmfm2"]
 
 [ext_resource type="Script" uid="uid://b8e0gqijmqpup" path="res://playerInput.gd" id="1_tc527"]
-[ext_resource type="PackedScene" uid="uid://bklkg12tgvcd4" path="res://tower_sapito.tscn" id="2_lqgkb"]
+[ext_resource type="PackedScene" uid="uid://bklkg12tgvcd4" path="res://towers/tower_sapito.tscn" id="2_lqgkb"]
 [ext_resource type="Script" uid="uid://c50rr27agheub" path="res://spawner.gd" id="4_40171"]
 [ext_resource type="Script" uid="uid://c8ygmcmd8wxj2" path="res://spawnableObject.gd" id="4_ikg0i"]
 [ext_resource type="PackedScene" uid="uid://b05nlpi7dsh4h" path="res://enemy/enemy_bolsa.tscn" id="4_yuf6q"]
 [ext_resource type="Script" uid="uid://craacwhy5m0gy" path="res://towerSelection.gd" id="5_f28iq"]
-[ext_resource type="Texture2D" uid="uid://ccpd0jh5glixg" path="res://assets/path.png" id="5_ikg0i"]
 [ext_resource type="PackedScene" uid="uid://dci454xw45w2r" path="res://enemy/enemy_vaso.tscn" id="6_gd7j4"]
-[ext_resource type="PackedScene" uid="uid://dffnvg076v7fl" path="res://tower_castor.tscn" id="6_ikg0i"]
+[ext_resource type="PackedScene" uid="uid://dffnvg076v7fl" path="res://towers/tower_castor.tscn" id="6_ikg0i"]
 [ext_resource type="PackedScene" uid="uid://pud3a0rcfesl" path="res://enemy/enemy_botella.tscn" id="7_aqhgb"]
+[ext_resource type="Texture2D" uid="uid://bdehop6uwtex8" path="res://assets/levels/primer nivel.png" id="8_bowjw"]
 [ext_resource type="Script" uid="uid://dsa822w1fetek" path="res://towerSelectButton.gd" id="8_yuf6q"]
 [ext_resource type="Texture2D" uid="uid://bw3uc8gmbr85d" path="res://assets/icons/sapito.png" id="11_bowjw"]
+[ext_resource type="PackedScene" uid="uid://bpfbftxg3wewr" path="res://towers/tower_martin.tscn" id="11_dvaq1"]
+[ext_resource type="PackedScene" uid="uid://bfshr1k7exmf1" path="res://towers/tower_nutria.tscn" id="12_y2aex"]
 [ext_resource type="Texture2D" uid="uid://bp7m8uao622pd" path="res://assets/icons/lutria.png" id="13_dvaq1"]
 [ext_resource type="Texture2D" uid="uid://bho1ovrpef1y" path="res://assets/icons/martinpescador.png" id="14_y2aex"]
 [ext_resource type="Texture2D" uid="uid://da51t2djbtf67" path="res://assets/icons/gastor.png" id="15_yaipy"]
 
 [sub_resource type="Curve2D" id="Curve2D_lqgkb"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 315, 0, 0, 0, 0, 130, 316, 0, 0, 0, 0, 132, 141, 0, 0, 0, 0, 295, 133, 0, 0, 0, 0, 293, 486, 0, 0, 0, 0, 74, 489, 0, 0, 0, 0, 76, 598, 0, 0, 0, 0, 602, 600, 0, 0, 0, 0, 601, 415, 0, 0, 0, 0, 433, 421, 0, 0, 0, 0, 431, 255, 0, 0, 0, 0, 596, 252, 0, 0, 0, 0, 591, 67, 0, 0, 0, 0, 375, 83, 0, 0, 0, 0, 373, 20)
+"points": PackedVector2Array(0, 0, 0, 0, 8, 245, 0, 0, 0, 0, 85, 243, 0, 0, 0, 0, 91, 143, 0, 0, 0, 0, 244, 143, 0, 0, 0, 0, 247, 352, 0, 0, 0, 0, 94, 357, 0, 0, 0, 0, 89, 460, 0, 0, 0, 0, 519, 458, 0, 0, 0, 0, 517, 307, 0, 0, 0, 0, 416, 305, 0, 0, 0, 0, 417, 151, 0, 0, 0, 0, 572, 146, 0, 0, 0, 0, 573, 46, 0, 0, 0, 0, 416, 39, 0, 0, 0, 0, 415, -26)
 }
 point_count = 15
 
@@ -48,12 +50,14 @@ curve = SubResource("Curve2D_lqgkb")
 [node name="Spawner" type="Node2D" parent="."]
 script = ExtResource("4_40171")
 spawnable_objects = Array[Resource]([SubResource("Resource_gd7j4"), SubResource("Resource_aqhgb"), SubResource("Resource_xqjtc")])
+spawn_rate = 0.5
 path = NodePath("../Path2D")
 
-[node name="GameArea" type="Node2D" parent="." node_paths=PackedStringArray("GameArea", "Path")]
+[node name="GameArea" type="Node2D" parent="." node_paths=PackedStringArray("GameArea", "Background", "Path")]
 script = ExtResource("1_tc527")
 TowerScene = ExtResource("2_lqgkb")
 GameArea = NodePath(".")
+Background = NodePath("background")
 Path = NodePath("../Path2D")
 PathClearence = 50.0
 
@@ -64,7 +68,7 @@ format = 2
 z_index = -2
 position = Vector2(332.926, 319.5)
 scale = Vector2(0.648185, 0.648185)
-texture = ExtResource("5_ikg0i")
+texture = ExtResource("8_bowjw")
 
 [node name="UiCanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -78,6 +82,8 @@ offset_bottom = 649.0
 script = ExtResource("5_f28iq")
 TowerScenes = {
 "TowerCastor": ExtResource("6_ikg0i"),
+"TowerMartin": ExtResource("11_dvaq1"),
+"TowerNutria": ExtResource("12_y2aex"),
 "TowerSapito": ExtResource("2_lqgkb")
 }
 metadata/_edit_use_anchors_ = true
@@ -104,7 +110,7 @@ layout_mode = 2
 texture_normal = ExtResource("13_dvaq1")
 stretch_mode = 0
 script = ExtResource("8_yuf6q")
-tower_name = "ToweNutria"
+tower_name = "TowerNutria"
 
 [node name="TowerMartinButton" type="TextureButton" parent="UiCanvasLayer/Control/GridContainer"]
 z_index = 1
@@ -120,9 +126,13 @@ layout_mode = 2
 texture_normal = ExtResource("15_yaipy")
 stretch_mode = 0
 script = ExtResource("8_yuf6q")
-tower_name = "ToweCastor"
+tower_name = "TowerCastor"
 
 [connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerSapitoButton" to="UiCanvasLayer/Control/GridContainer/TowerSapitoButton" method="_on_pressed"]
+[connection signal="tower_selected" from="UiCanvasLayer/Control/GridContainer/TowerSapitoButton" to="UiCanvasLayer/Control" method="_on_button_pressed"]
 [connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerNutriaButton" to="UiCanvasLayer/Control/GridContainer/TowerNutriaButton" method="_on_pressed"]
+[connection signal="tower_selected" from="UiCanvasLayer/Control/GridContainer/TowerNutriaButton" to="UiCanvasLayer/Control" method="_on_button_pressed"]
 [connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerMartinButton" to="UiCanvasLayer/Control/GridContainer/TowerMartinButton" method="_on_pressed"]
+[connection signal="tower_selected" from="UiCanvasLayer/Control/GridContainer/TowerMartinButton" to="UiCanvasLayer/Control" method="_on_button_pressed"]
 [connection signal="pressed" from="UiCanvasLayer/Control/GridContainer/TowerCastorButton" to="UiCanvasLayer/Control/GridContainer/TowerCastorButton" method="_on_pressed"]
+[connection signal="tower_selected" from="UiCanvasLayer/Control/GridContainer/TowerCastorButton" to="UiCanvasLayer/Control" method="_on_button_pressed"]

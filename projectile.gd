@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var speed: float = 300.0
+@export var damage: float = 50.0
 var target: Node2D
 
 func _process(delta: float):
