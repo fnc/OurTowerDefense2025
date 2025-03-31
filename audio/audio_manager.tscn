@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dkke7xc0qiifu"]
+[gd_scene load_steps=17 format=3 uid="uid://dkke7xc0qiifu"]
 
 [ext_resource type="Script" uid="uid://ip6l8ahr6fw8" path="res://audio/audio_manager.gd" id="1_mhfhn"]
 [ext_resource type="AudioStream" uid="uid://bipvnn10e20y0" path="res://audio/sfx files/hit-001.wav" id="1_vxw8f"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bjtboh80ikqa2" path="res://audio/sfx files/shot-005.wav" id="10_ji21h"]
 [ext_resource type="AudioStream" uid="uid://ikjeoxqm8bxr" path="res://audio/sfx files/BG_river_loop.ogg" id="11_sgp2o"]
 [ext_resource type="AudioStream" uid="uid://c4bojllxu4vag" path="res://audio/sfx files/boton-click.wav" id="12_qus7j"]
+[ext_resource type="AudioStream" uid="uid://dhpd8ujc4upma" path="res://audio/OurTowerDefenseSong.wav" id="13_h3g62"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hlghp"]
 random_volume_offset_db = 1.0
@@ -69,3 +70,9 @@ volume_db = -6.205
 pitch_scale = 1.41
 mix_target = 2
 bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_h3g62")
+autoplay = true
+bus = &"MX"
+playback_type = 1
