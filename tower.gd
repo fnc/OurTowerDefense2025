@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 				break # Stop after shooting one enemy
 
 func shoot(enemy) -> void:
+	AudioManager.shot.play()
 	# Add projectile or damage logic here
 	var projectile = projectile_scene.instantiate()
 	projectile.global_position = global_position

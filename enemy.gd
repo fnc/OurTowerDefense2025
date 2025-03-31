@@ -26,6 +26,8 @@ func _process(delta: float) -> void:
 func take_damage(amount: int) -> void:
 	health -= amount  # Reduce health
 	if health <= 0:
+		AudioManager.take_hit.play()
+		
 		print("Enemy defeated! points_value:", points_value)
 		emit_signal("enemy_defeated", points_value)
 		queue_free()  # Remove the enemy when health reaches zero

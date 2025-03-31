@@ -24,6 +24,7 @@ func spawn_enemy_waves(wave) -> void:
 		spawn_enemy()
 		await get_tree().create_timer(wave["spawn_rate"]).timeout
 	startButton.disabled = false  # Rehabilitar botón tras la ola
+	GameManager.money += 202 - (GameManager.current_wave * 2)
 	print("Wave complete!")
 
 func spawn_enemy() -> void:
