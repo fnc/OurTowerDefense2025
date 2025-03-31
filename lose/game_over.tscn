@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctyfctekdfljj"]
+
+[ext_resource type="Texture2D" uid="uid://buwfcqy8fig5d" path="res://assets/Tapa sin nada.png" id="1_8hugb"]
+[ext_resource type="FontFile" uid="uid://d182q6ikpk7kw" path="res://assets/IndieFlower-Regular.ttf" id="2_3xq6s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_21hnx"]
+font = ExtResource("2_3xq6s")
+font_size = 200
+font_color = Color(0.0142752, 0.0142752, 0.0142752, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cx0w3"]
+font_size = 90
+
+[node name="GameOver" type="Node2D"]
+
+[node name="TapaSinNada" type="Sprite2D" parent="."]
+position = Vector2(596.5, 388)
+scale = Vector2(1.323, 1)
+texture = ExtResource("1_8hugb")
+
+[node name="titulo" type="Label" parent="."]
+offset_left = 86.0
+offset_top = 98.0
+offset_right = 1233.0
+offset_bottom = 470.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_21hnx")
+
+[node name="Rondas" type="Label" parent="."]
+offset_left = 446.0
+offset_top = 487.0
+offset_right = 754.0
+offset_bottom = 611.0
+text = "123456"
+label_settings = SubResource("LabelSettings_cx0w3")

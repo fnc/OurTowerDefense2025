@@ -1,6 +1,6 @@
 extends Node
 
-@export var initial_lives: int = 100;
+@export var initial_lives: int = 1;
 @export var initial_money: int = 650;
 var money: int = initial_money # Keep track of the total score
 var lives: int = initial_lives # Lives remaining in the game
@@ -20,9 +20,10 @@ func _on_enemy_reached_end(points_value):
 	print("Enemy reached end! Points lost:", points_value, "| Lives remaining:", lives)
 
 	# Check for game over
-	if lives <= 0:
+	if lives == 0:
 		game_over()
 
 func game_over():
 	print("Game Over!")
+	get_tree().change_scene_to_file("res://lose/game_over.tscn")  # Carga la escena Game Over
 	# Add game over logic (e.g., show game over screen or restart game)
