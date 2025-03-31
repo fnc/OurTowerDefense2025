@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bjaecrgvlmfm2"]
+[gd_scene load_steps=41 format=3 uid="uid://bjaecrgvlmfm2"]
 
 [ext_resource type="Script" uid="uid://b8e0gqijmqpup" path="res://playerInput.gd" id="1_tc527"]
 [ext_resource type="PackedScene" uid="uid://bklkg12tgvcd4" path="res://towers/tower_sapito.tscn" id="2_lqgkb"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bp7m8uao622pd" path="res://assets/icons/lutria.png" id="13_dvaq1"]
 [ext_resource type="Texture2D" uid="uid://bho1ovrpef1y" path="res://assets/icons/martinpescador.png" id="14_y2aex"]
 [ext_resource type="Texture2D" uid="uid://da51t2djbtf67" path="res://assets/icons/gastor.png" id="15_yaipy"]
+[ext_resource type="FontFile" uid="uid://d182q6ikpk7kw" path="res://assets/IndieFlower-Regular.ttf" id="17_5br55"]
 [ext_resource type="Texture2D" uid="uid://djg7d3xixesbi" path="res://assets/play.png" id="20_p37fh"]
 [ext_resource type="Texture2D" uid="uid://buwfcqy8fig5d" path="res://assets/Tapa sin nada.png" id="21_pvbhh"]
 
@@ -51,6 +52,34 @@ script = ExtResource("4_ikg0i")
 scene = ExtResource("6_wnxwe")
 spawn_probability = 0.02
 metadata/_custom_type_script = "uid://c8ygmcmd8wxj2"
+
+[sub_resource type="LabelSettings" id="LabelSettings_pktl7"]
+font = ExtResource("17_5br55")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_80eph"]
+font = ExtResource("17_5br55")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_fmm45"]
+font = ExtResource("17_5br55")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_t8jkh"]
+font = ExtResource("17_5br55")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_5br55"]
+font = ExtResource("17_5br55")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_f0mwg"]
+font = ExtResource("17_5br55")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_a2k7s"]
+font = ExtResource("17_5br55")
+font_size = 25
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fmm45"]
 texture = ExtResource("20_p37fh")
@@ -137,6 +166,7 @@ tower_name = "TowerSapito"
 [node name="TowerLabelSapito" type="Label" parent="UiCanvasLayer/Control/GridContainer"]
 layout_mode = 2
 text = "$ 250"
+label_settings = SubResource("LabelSettings_pktl7")
 
 [node name="TowerCastorButton" type="TextureButton" parent="UiCanvasLayer/Control/GridContainer"]
 z_index = 1
@@ -149,6 +179,7 @@ tower_name = "TowerCastor"
 [node name="TowerLabelCastor" type="Label" parent="UiCanvasLayer/Control/GridContainer"]
 layout_mode = 2
 text = "$ 400"
+label_settings = SubResource("LabelSettings_80eph")
 
 [node name="TowerMartinButton" type="TextureButton" parent="UiCanvasLayer/Control/GridContainer"]
 z_index = 1
@@ -161,6 +192,7 @@ tower_name = "TowerMartin"
 [node name="TowerLabelMarti" type="Label" parent="UiCanvasLayer/Control/GridContainer"]
 layout_mode = 2
 text = "$ 500"
+label_settings = SubResource("LabelSettings_fmm45")
 
 [node name="TowerNutriaButton" type="TextureButton" parent="UiCanvasLayer/Control/GridContainer"]
 z_index = 1
@@ -174,6 +206,7 @@ tower_name = "TowerNutria"
 layout_mode = 2
 text = "$ 900
 "
+label_settings = SubResource("LabelSettings_t8jkh")
 
 [node name="MoneyLabel" type="Label" parent="UiCanvasLayer"]
 offset_left = 815.0
@@ -181,6 +214,7 @@ offset_top = 544.0
 offset_right = 943.0
 offset_bottom = 567.0
 text = "12345678"
+label_settings = SubResource("LabelSettings_5br55")
 
 [node name="HealthLabel" type="Label" parent="UiCanvasLayer"]
 offset_left = 817.0
@@ -188,6 +222,7 @@ offset_top = 576.0
 offset_right = 945.0
 offset_bottom = 599.0
 text = "12345678"
+label_settings = SubResource("LabelSettings_f0mwg")
 
 [node name="WaveLabel" type="Label" parent="UiCanvasLayer"]
 offset_left = 819.0
@@ -195,6 +230,7 @@ offset_top = 607.0
 offset_right = 947.0
 offset_bottom = 630.0
 text = "12345678"
+label_settings = SubResource("LabelSettings_a2k7s")
 
 [node name="StartWaveButton" type="Button" parent="UiCanvasLayer"]
 offset_left = 671.0
